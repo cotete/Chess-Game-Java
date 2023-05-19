@@ -1,11 +1,12 @@
 package application;
 
+import boardgame.board;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("sex");
-        System.out.println("sex");
-        System.out.println("sex");
-        System.out.println("sex");
+        board Board = new board(8, 8);
+
+
 
 
     }
