@@ -1,5 +1,8 @@
 package boardgame;
 
+import chess.ChessPiece;
+import chess.ChessPosition;
+
 public class board {
 
     private int rows;
@@ -58,6 +61,20 @@ public class board {
             throw new BoardExeption("Position not on the board");
         }
         return piece(position) != null;
+    }
+
+    public Piece removePiece(Position position){
+        if(!positionExists(position)){
+            throw new BoardExeption("Position not on the board");
+        }
+        if(piece(position) == null){
+            return null;
+        }
+        Piece atPos = piece(position);
+        atPos.position = null;
+        pieces[position.getRow()][position.getColumn()] = null;
+        return atPos;
+
     }
 
 

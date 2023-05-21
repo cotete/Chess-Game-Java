@@ -2,6 +2,10 @@ package application;
 
 import chess.ChessMatch;
 import chess.ChessPiece;
+import chess.ChessPosition;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class UI {
     public static void printBoard(ChessPiece[][] pieces){
@@ -23,5 +27,17 @@ public class UI {
             System.out.print(piece);
         }
         System.out.print(" ");
+    }
+
+    public static ChessPosition readChessPosition(Scanner sc){
+        try {
+            String s = sc.nextLine();
+            char column = s.charAt(0);
+            int row = Integer.parseInt(s.substring(1));
+            return new ChessPosition(column, row);
+        }
+        catch (RuntimeException e ){
+            throw new InputMismatchException("Valid values: a1 to h8");
+        }
     }
 }
