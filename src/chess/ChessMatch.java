@@ -76,6 +76,8 @@ public class ChessMatch {
     }
 
     public boolean [][] possibleMoves(ChessPosition sourcePosition){
-        return null;
+        Position position = sourcePosition.toPosition();
+        validateSourcePosition(position);
+        return board.piece(position).possibleMoves();
     }
 }
